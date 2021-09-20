@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Challenge 13</title>
+        <meta charset="utf-8" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="Daniela Damjanoska" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="main"></div>
+        <h2>Add a book to the list</h2>
+        <form>
+            <input
+                class="removeModal"
+                type="text"
+                id="title"
+                placeholder='Book Title in " "'
+            />
+            <input
+                class="removeModal"
+                type="text"
+                id="author"
+                placeholder="Book Author"
+            />
+            <input
+                class="removeModal"
+                type="number"
+                id="statusPages"
+                placeholder="Current Page On..."
+            />
+            <input
+                class="removeModal"
+                type="number"
+                id="maxPages"
+                placeholder="Book Max Pages"
+            />
+            <button type="submit">Add to list</button>
+        </form>
+        <div class="modal">
+            <span class="close">&times;</span>
+            <p>Please fill all the fields for the book!</p>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>

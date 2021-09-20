@@ -1,0 +1,134 @@
+body {
+    background: linear-gradient(to top left, #ff9b77, #fffafa);
+    min-height: 100vh;
+}
+
+h2 {
+    color: #9c0808;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+li {
+    color: #9c0808;
+}
+
+table,
+th,
+td {
+    border: 1px solid #9c0808;
+    border-collapse: collapse;
+    color: #9c0808;
+}
+
+th:nth-child(-n + 2) {
+    width: 200px;
+}
+
+th:nth-child(3),
+th:nth-child(4) {
+    width: 100px;
+}
+
+th:last-child {
+    width: 150px;
+}
+
+th {
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+span {
+    color: #fffafa;
+    font-weight: bold;
+    padding-left: 10px;
+    display: inline-block;
+    padding-top: 6.5px;
+}
+
+input {
+    border: 1px solid #ffa888;
+    border-radius: 4px;
+    color: #9c0808;
+    font-weight: bold;
+    padding: 8px 5px;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #9c0808;
+}
+
+input::placeholder {
+    color: #ffa888;
+    font-weight: normal;
+}
+
+button {
+    background-color: #b92424;
+    color: #fffaf0;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 7px 10px;
+    font-size: 15px;
+    transition: background-color, 0.3s ease-in;
+}
+
+button:hover {
+    background-color: #8f0606;
+}
+
+.progress {
+    width: 100%;
+    background-color: transparent;
+}
+
+.bar {
+    width: 1%;
+    height: 30px;
+    background-color: #014201;
+    border-radius: 5px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -30%);
+    background-color: rgb(255, 182, 169);
+    padding: 25px 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 3px groove #eb0a0a;
+}
+
+.modal p {
+    color: #fffafa;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.close {
+    color: #fffafa;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #b92424;
+    cursor: pointer;
+}
