@@ -142,21 +142,12 @@ const onPageLoad = function () {
     const booksFromStorage = JSON.parse(localStorage.getItem('bookInStorage'));
     console.log(booksFromStorage);
 
-    // if (booksFromStorage) {
-    //     makeRows(
-    //         inputTitleVal,
-    //         inputAuthorVal,
-    //         inputStatusVal,
-    //         inputMaxPageVal
-    //     );
-
-    //     fullLists(
-    //         inputTitleVal,
-    //         inputAuthorVal,
-    //         inputStatusVal,
-    //         inputMaxPageVal
-    //     );
-    // }
+    if (booksFromStorage) {
+        booksFromStorage.forEach(book => {
+            makeRows(book.title, book.author, book.onPage, book.maxPages);
+            fullLists(book.title, book.author, book.onPage, book.maxPages);
+        });
+    }
 };
 
 listTitle.innerText = 'List of your Books:';
