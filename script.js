@@ -143,6 +143,9 @@ const onPageLoad = function () {
     console.log(booksFromStorage);
 
     if (booksFromStorage) {
+        listOfBooks.innerHTML = '';
+        readStatusOfTheBooks.innerHTML = '';
+        tbody.innerHTML = '';
         booksFromStorage.forEach(book => {
             makeRows(book.title, book.author, book.onPage, book.maxPages);
             fullLists(book.title, book.author, book.onPage, book.maxPages);
