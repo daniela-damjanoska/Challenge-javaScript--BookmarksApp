@@ -47,9 +47,8 @@ th {
 span {
     color: #fffafa;
     font-weight: bold;
-    padding-left: 10px;
     display: inline-block;
-    padding-top: 6.5px;
+    padding: 7px 0 7px 8px;
 }
 
 input {
@@ -93,7 +92,6 @@ button:hover {
 
 .bar {
     width: 1%;
-    height: 30px;
     background-color: #014201;
     border-radius: 5px;
 }
