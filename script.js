@@ -1,19 +1,19 @@
 'use strict';
 const main = document.querySelector('.main'),
+    inputTitle = document.querySelector('#title'),
+    inputAuthor = document.querySelector('#author'),
+    inputStatus = document.querySelector('#statusPages'),
+    inputMaxPage = document.querySelector('#maxPages'),
+    form = document.querySelector('form'),
+    button = document.querySelector('form button'),
     listTitle = document.createElement('h2'),
     statusTitle = document.createElement('h2'),
     listOfBooks = document.createElement('ul'),
     readStatusOfTheBooks = document.createElement('ul'),
     table = document.createElement('table'),
     thead = document.createElement('thead'),
-    headingRow = document.createElement('tr'),
     tbody = document.createElement('tbody'),
-    inputTitle = document.querySelector('#title'),
-    inputAuthor = document.querySelector('#author'),
-    inputStatus = document.querySelector('#statusPages'),
-    inputMaxPage = document.querySelector('#maxPages'),
-    form = document.querySelector('form'),
-    button = document.querySelector('form button');
+    headingRow = document.createElement('tr');
 
 let keysBooks, inputTitleVal, inputAuthorVal, inputStatusVal, inputMaxPageVal;
 
@@ -156,8 +156,6 @@ const onPageLoad = function () {
 listTitle.innerText = 'List of your Books:';
 statusTitle.innerText = 'The status of your Books:';
 
-main.append(listTitle, listOfBooks, statusTitle, readStatusOfTheBooks);
-
 class Book {
     constructor(title, author, onPage, maxPages) {
         this.title = title;
@@ -181,9 +179,8 @@ const book1 = new Book('"Lord of the rings"', 'J. R. R. Tolkien', 550, 1178),
 
 books.forEach(book => {
     fullLists(book.title, book.author, book.onPage, book.maxPages);
-    makeRows(book.title, book.author, book.onPage, book.maxPages);
-
     keysBooks = Object.keys(book);
+    makeRows(book.title, book.author, book.onPage, book.maxPages);
 });
 
 const capitalizeKeyBooks = keysBooks.map(
@@ -198,6 +195,7 @@ capitalizeKeyBooks.forEach(key => {
     headingRow.appendChild(headings);
 });
 
+main.append(listTitle, listOfBooks, statusTitle, readStatusOfTheBooks);
 thead.appendChild(headingRow);
 table.append(thead, tbody);
 main.appendChild(table);
