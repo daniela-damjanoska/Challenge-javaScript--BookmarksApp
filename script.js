@@ -146,10 +146,13 @@ const onPageLoad = function () {
         listOfBooks.innerHTML = '';
         readStatusOfTheBooks.innerHTML = '';
         tbody.innerHTML = '';
+
         booksFromStorage.forEach(book => {
             makeRows(book.title, book.author, book.onPage, book.maxPages);
             fullLists(book.title, book.author, book.onPage, book.maxPages);
         });
+
+        books = booksFromStorage.slice();
     }
 };
 
@@ -174,8 +177,9 @@ const book1 = new Book('"Lord of the rings"', 'J. R. R. Tolkien', 550, 1178),
         350,
         1276
     ),
-    book5 = new Book('"The Da Vinci Code"', 'Dan Brown', 689, 689),
-    books = [book1, book2, book3, book4, book5];
+    book5 = new Book('"The Da Vinci Code"', 'Dan Brown', 689, 689);
+
+let books = [book1, book2, book3, book4, book5];
 
 books.forEach(book => {
     fullLists(book.title, book.author, book.onPage, book.maxPages);
