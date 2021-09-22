@@ -14,30 +14,14 @@
         <div class="main"></div>
         <h2>Add a book to the list</h2>
         <form>
+            <input type="text" id="title" placeholder='Book Title in " "' />
+            <input type="text" id="author" placeholder="Book Author" />
             <input
-                class="removeModal"
-                type="text"
-                id="title"
-                placeholder='Book Title in " "'
-            />
-            <input
-                class="removeModal"
-                type="text"
-                id="author"
-                placeholder="Book Author"
-            />
-            <input
-                class="removeModal"
                 type="number"
                 id="statusPages"
                 placeholder="Current Page On..."
             />
-            <input
-                class="removeModal"
-                type="number"
-                id="maxPages"
-                placeholder="Book Max Pages"
-            />
+            <input type="number" id="maxPages" placeholder="Book Max Pages" />
             <button type="submit">Add to list</button>
         </form>
         <div class="modal">

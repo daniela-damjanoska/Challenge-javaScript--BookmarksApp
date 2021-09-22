@@ -10,19 +10,29 @@ h2 {
 }
 
 form {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 li {
     color: #9c0808;
 }
 
-table,
+table {
+    margin: 30px 0;
+    border: 2px solid #9c0808;
+    border-collapse: collapse;
+    color: #9c0808;
+}
+
 th,
 td {
     border: 1px solid #9c0808;
-    border-collapse: collapse;
-    color: #9c0808;
+}
+
+th {
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 th:nth-child(-n + 2) {
@@ -36,12 +46,6 @@ th:nth-child(4) {
 
 th:last-child {
     width: 150px;
-}
-
-th {
-    text-align: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
 }
 
 span {
@@ -98,16 +102,17 @@ button:hover {
 
 .modal {
     display: none; /* Hidden by default */
-    position: absolute;
-    z-index: 1;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -30%);
     background-color: rgb(255, 182, 169);
+    width: 400px;
     padding: 25px 40px;
+    border: 3px groove #eb0a0a;
     border-radius: 10px;
     text-align: center;
-    border: 3px groove #eb0a0a;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
 }
 
 .modal p {
@@ -119,8 +124,8 @@ button:hover {
 .close {
     color: #fffafa;
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 0;
+    right: 15px;
     font-size: 35px;
     font-weight: bold;
 }

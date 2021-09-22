@@ -5,7 +5,6 @@ const main = document.querySelector('.main'),
     inputStatus = document.querySelector('#statusPages'),
     inputMaxPage = document.querySelector('#maxPages'),
     form = document.querySelector('form'),
-    button = document.querySelector('form button'),
     listTitle = document.createElement('h2'),
     statusTitle = document.createElement('h2'),
     listOfBooks = document.createElement('ol'),
@@ -64,8 +63,8 @@ const makeRows = function makeRows(_td1, _td2, _td3, _td4) {
 
     let count = 0;
     if (count === 0) {
-        let width = 0;
-        let id = setInterval(inner, 10);
+        let width = 0,
+            id = setInterval(inner, 10);
         function inner() {
             if (width >= percent) {
                 clearInterval(id);
@@ -121,19 +120,15 @@ const onSubmit = function (e) {
 
         form.reset();
     } else {
-        const modal = document.querySelector('.modal');
-        const modalClose = document.querySelector('.close');
+        const modal = document.querySelector('.modal'),
+            modalClose = document.querySelector('.close');
+
         modal.style.display = 'block';
+        form.style.marginBottom = '-92px';
 
-        modalClose.addEventListener(
-            'click',
-            () => (modal.style.display = 'none')
-        );
-
-        document.addEventListener('click', e => {
-            if (e.target.classList.contains('removeModal')) {
-                modal.style.display = 'none';
-            }
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+            form.style.marginBottom = '50px';
         });
     }
 };
@@ -206,5 +201,5 @@ main.appendChild(table);
 
 console.log(books);
 
-button.addEventListener('click', onSubmit);
+form.addEventListener('submit', onSubmit);
 window.addEventListener('load', onPageLoad);
