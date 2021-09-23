@@ -63,9 +63,20 @@ input {
     padding: 8px 5px;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
 input:focus {
     outline: none;
     border: 1px solid #9c0808;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: #9c0808;
 }
 
 input::placeholder {

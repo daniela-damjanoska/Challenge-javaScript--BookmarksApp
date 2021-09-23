@@ -83,7 +83,8 @@ const onSubmit = function (e) {
         inputTitle.value &&
         inputAuthor.value &&
         inputStatus.value &&
-        inputMaxPage.value
+        inputMaxPage.value &&
+        inputStatus.value <= inputMaxPage.value
     ) {
         inputTitleVal = inputTitle.value;
         inputAuthorVal = inputAuthor.value;
@@ -121,13 +122,24 @@ const onSubmit = function (e) {
         form.reset();
     } else {
         const modal = document.querySelector('.modal'),
-            modalClose = document.querySelector('.close');
+            modalClose = document.querySelector('.close'),
+            modalPar = document.querySelector('.modal p');
 
         modal.style.display = 'block';
-        form.style.marginBottom = '-92px';
+
+        if (inputStatus.value > inputMaxPage.value) {
+            inputMaxPage.style.border = '3px solid red';
+            modalPar.innerText =
+                'Your max page number is smaller that the number of the pages you are currently on, please check again!';
+            form.style.marginBottom = '-165px';
+        } else {
+            modalPar.innerText = 'Please fill all the fields for the book!';
+            form.style.marginBottom = '-92px';
+        }
 
         modalClose.addEventListener('click', () => {
             modal.style.display = 'none';
+            inputMaxPage.style.border = '1px solid #ffa888';
             form.style.marginBottom = '50px';
         });
     }
