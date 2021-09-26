@@ -1,10 +1,11 @@
 'use strict';
-const main = document.querySelector('.main'),
+const lists = document.querySelector('.lists'),
     inputTitle = document.querySelector('#title'),
     inputAuthor = document.querySelector('#author'),
     inputStatus = document.querySelector('#statusPages'),
     inputMaxPage = document.querySelector('#maxPages'),
     form = document.querySelector('form'),
+    overlay = document.querySelector('.overlay'),
     listTitle = document.createElement('h2'),
     statusTitle = document.createElement('h2'),
     listOfBooks = document.createElement('ol'),
@@ -127,18 +128,20 @@ const onSubmit = function (e) {
 
         modal.style.display = 'block';
 
-        if (inputStatus.value > inputMaxPage.value) {
+        if (inputStatus.value > inputMaxPage.value && inputMaxPage.value) {
             inputMaxPage.style.border = '3px solid red';
             modalPar.innerText =
                 'Your max page number is smaller that the number of the pages you are currently on, please check again!';
             form.style.marginBottom = '-165px';
         } else {
+            overlay.style.display = 'block';
             modalPar.innerText = 'Please fill all the fields for the book!';
             form.style.marginBottom = '-92px';
         }
 
         modalClose.addEventListener('click', () => {
             modal.style.display = 'none';
+            overlay.style.display = 'none';
             inputMaxPage.style.border = '1px solid #ffa888';
             form.style.marginBottom = '50px';
         });
@@ -206,10 +209,10 @@ capitalizeKeyBooks.forEach(key => {
     headingRow.appendChild(headings);
 });
 
-main.append(listTitle, listOfBooks, statusTitle, readStatusOfTheBooks);
+lists.append(listTitle, listOfBooks, statusTitle, readStatusOfTheBooks);
 thead.appendChild(headingRow);
 table.append(thead, tbody);
-main.appendChild(table);
+lists.appendChild(table);
 
 console.log(books);
 
