@@ -15,7 +15,7 @@ const lists = document.querySelector('.lists'),
     tbody = document.createElement('tbody'),
     headingRow = document.createElement('tr');
 
-let keysBooks, inputTitleVal, inputAuthorVal, inputStatusVal, inputMaxPageVal;
+let keysBooks;
 
 const fullLists = function (_title, _author, _status, _max) {
     const addBookList = document.createElement('li'),
@@ -80,18 +80,18 @@ const makeRows = function makeRows(_td1, _td2, _td3, _td4) {
 const onSubmit = function (e) {
     e.preventDefault();
 
-    if (
-        inputTitle.value &&
-        inputAuthor.value &&
-        inputStatus.value &&
-        inputMaxPage.value &&
-        inputStatus.value <= inputMaxPage.value
-    ) {
-        inputTitleVal = inputTitle.value;
-        inputAuthorVal = inputAuthor.value;
-        inputStatusVal = inputStatus.valueAsNumber;
+    const inputTitleVal = inputTitle.value,
+        inputAuthorVal = inputAuthor.value,
+        inputStatusVal = inputStatus.valueAsNumber,
         inputMaxPageVal = inputMaxPage.valueAsNumber;
 
+    if (
+        inputTitleVal &&
+        inputAuthorVal &&
+        inputStatusVal &&
+        inputMaxPageVal &&
+        inputStatusVal <= inputMaxPageVal
+    ) {
         const addNewBook = new Book(
             inputTitleVal,
             inputAuthorVal,
@@ -100,7 +100,7 @@ const onSubmit = function (e) {
         );
 
         books.push(addNewBook);
-        console.log(books);
+        // console.log(books);
 
         // Add books to localStorage
         localStorage.setItem('bookInStorage', JSON.stringify(books));
@@ -128,7 +128,7 @@ const onSubmit = function (e) {
 
         modal.style.display = 'block';
 
-        if (inputStatus.value > inputMaxPage.value && inputMaxPage.value) {
+        if (inputStatusVal > inputMaxPageVal) {
             inputMaxPage.style.border = '3px solid red';
             modalPar.innerText =
                 'Your max page number is smaller that the number of the pages you are currently on, please check again!';
@@ -139,18 +139,21 @@ const onSubmit = function (e) {
             form.style.marginBottom = '-92px';
         }
 
-        modalClose.addEventListener('click', () => {
+        const closeModal = function () {
             modal.style.display = 'none';
             overlay.style.display = 'none';
             inputMaxPage.style.border = '1px solid #ffa888';
             form.style.marginBottom = '50px';
-        });
+        };
+
+        modalClose.addEventListener('click', closeModal);
+        document.addEventListener('click', closeModal);
     }
 };
 
 const onPageLoad = function () {
     const booksFromStorage = JSON.parse(localStorage.getItem('bookInStorage'));
-    console.log(booksFromStorage);
+    // console.log(booksFromStorage);
 
     if (booksFromStorage) {
         listOfBooks.innerHTML = '';
@@ -214,7 +217,7 @@ thead.appendChild(headingRow);
 table.append(thead, tbody);
 lists.appendChild(table);
 
-console.log(books);
+// console.log(books);
 
 form.addEventListener('submit', onSubmit);
 window.addEventListener('load', onPageLoad);
