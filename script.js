@@ -1,11 +1,6 @@
 'use strict';
 const lists = document.querySelector('.lists'),
-    inputTitle = document.querySelector('#title'),
-    inputAuthor = document.querySelector('#author'),
-    inputStatus = document.querySelector('#statusPages'),
-    inputMaxPage = document.querySelector('#maxPages'),
     form = document.querySelector('form'),
-    overlay = document.querySelector('.overlay'),
     listTitle = document.createElement('h2'),
     statusTitle = document.createElement('h2'),
     listOfBooks = document.createElement('ol'),
@@ -80,9 +75,10 @@ const makeRows = function makeRows(_td1, _td2, _td3, _td4) {
 const onSubmit = function (e) {
     e.preventDefault();
 
-    const inputTitleVal = inputTitle.value,
-        inputAuthorVal = inputAuthor.value,
-        inputStatusVal = inputStatus.valueAsNumber,
+    const inputMaxPage = document.querySelector('#maxPages'),
+        inputTitleVal = document.querySelector('#title').value,
+        inputAuthorVal = document.querySelector('#author').value,
+        inputStatusVal = document.querySelector('#statusPages').valueAsNumber,
         inputMaxPageVal = inputMaxPage.valueAsNumber;
 
     if (
@@ -124,7 +120,8 @@ const onSubmit = function (e) {
     } else {
         const modal = document.querySelector('.modal'),
             modalClose = document.querySelector('.close'),
-            modalPar = document.querySelector('.modal p');
+            modalPar = document.querySelector('.modal p'),
+            overlay = document.querySelector('.overlay');
 
         modal.style.display = 'block';
 
